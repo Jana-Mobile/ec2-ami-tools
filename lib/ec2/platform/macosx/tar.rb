@@ -19,7 +19,15 @@ module EC2
           def initialize(e=EXECUTABLE)
             super e
           end
+          def owner(user)
+            self
+          end
+
+          def group(grp)
+            self
+          end
         end
+
         class Version < EC2::Platform::Linux::Tar::Version
           def default
             s = `#{Command.new.version.expand}`.strip
