@@ -9,12 +9,16 @@
 # limitations under the License.
 
 #-------------------------------------------------------------------------------
-require 'ec2/platform/linux/uname'
-
+require 'ec2/amitools/fileutil'
+require 'ec2/platform/linux/rsync'
 module EC2
   module Platform
     module Macosx
-      class Uname < EC2::Platform::Linux::Uname
+      class Rsync < EC2::Platform::Linux::Rsync
+        EXECUTABLE = 'rsync'
+        def initialize(e=EXECUTABLE)
+          super e
+        end
       end
     end
   end
